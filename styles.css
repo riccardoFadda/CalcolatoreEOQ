@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: lightgray;
+}
+
+#header {
+  position: absolute;
+  height: 10%;
+  text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-left: 2vw;
+}
+
+h3 {
+  margin-top: -10px;
+}
+
+#main {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.main-section {
+  margin: 0 2vw;
+  padding: 0 15px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#form {
+  width: 65vw;
+  height: 85%;
+  margin-top: 50px;
+}
+
+#main-form {
+  max-width: 100%;
+  display: flex;
+}
+
+#main-form .form-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+#main-form #mandatory-section {
+  width: 35%;
+}
+
+#main-form #optional-section {
+  width: 65%;
+}
+
+#main-form .inner-form-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  padding: 10px;
+}
+
+#item-cost-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+#main-form label {
+  width: 100%;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#main-form .checkbox-div {
+  padding-bottom: 5px;
+}
+
+#main-form .checkbox-label {
+  display: inline;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+#main-form input[type="number"] {
+  font-size: inherit;
+  height: 40px;
+  width: 13vw;
+  max-width: 200px;
+  margin-top: 5px;
+  padding-left: 10px;
+  margin: 5px;
+}
+
+#main-form input.percentage-input {
+  width: 70px;
+}
+
+#submit-section {
+  display: flex;
+}
+
+#form button {
+  margin: 5px auto;
+  padding: 5px 10px;
+  font-size: 25px;
+}
+
+#discount-inputs-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount-table {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.discount-table-element {
+  width: 50%;
+}
+
+#first-discount {
+  margin-left: 14px;
+}
+
+#results-section {
+  width: 30vw;
+  height: 95%;
+}
+
+#definition {
+  margin-top: 15px;
+  border-top: solid gray 2px;
+  border-bottom: solid gray 2px;
+  padding-top: 15px;
+  padding-bottom: 12px;
+}
+
+#definition p {
+  margin: 10px 0;
+}
+
+#results {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+#results p#instructions {
+  margin: auto;
+  text-align: center;
+  transition: opacity 2s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#results div#results-div {
+  margin: auto;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 1s;
+  border-radius: 20px;
+  background-color: rgb(206, 206, 206);
+  z-index: 1;
+}
+
+#results div#results-div div.discounted-eoq {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+#results div#results-div div.discounted-eoq div.discount-tier {
+  border-bottom: solid gray 2px;
+  margin-bottom: 2px;
+}
+
+#results div#results-div div.discounted-eoq p {
+  padding: 3px 0;
+}
+
+#results div#results-div p {
+  padding: 10px 0;
+}
+
+#results div#results-div p.costs {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#results div#results-div div.discounted-eoq p.costs {
+  padding: 1px 0;
+}
+
+#results div#results-div p.costs.total-costs {
+  border-top: solid gray 1px;
+}
+
+#results div#results-div p.note {
+  font-size: 12px;
+}
+
+#results div#results-div div#conclusion {
+  font-size: 14px;
+  margin: 20px 0;
+  padding: 10px;
+  border: solid gray 1px;
+  border-radius: 20px;
+}

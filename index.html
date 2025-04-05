@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Calcolatore EOQ</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1>Calcolatore EOQ</h1>
+      <h3>Lotto Economico di Ordinazione</h3>
+    </header>
+    <main id="main">
+      <form id="form" class="main-section">
+        <div id="main-form">
+          <div class="form-section" id="mandatory-section">
+            <div class="inner-form-section">
+              <label for="demand">Domanda annuale</label>
+              <input id="demand" type="number" min="1" required />
+            </div>
+            <div class="inner-form-section">
+              <label for="setup-cost">Costo di ordinazione</label>
+              <p>
+                € <input id="setup-cost" type="number" step="0.01" min="0.01" required />
+              </p>
+            </div>
+            <div class="inner-form-section">
+              <div>
+                <label for="fixed-holding-cost">Costi fissi di mantenimento</label>
+                <p>€ <input id="fixed-holding-cost" type="number" step="0.01" min="0.01" required /></p>
+              </div>
+            </div>
+          </div>
+          <div class="form-section" id="optional-section">
+            <div class="inner-form-section">
+              <div class="checkbox-div">
+                <input type="checkbox" id="item-cost-checkbox" />
+                <label class="checkbox-label" for="item-cost-checkbox">Utilizza tasso di mantenimento</label>
+              </div>
+              <fieldset
+                id="item-cost-section-fieldset"
+                class="inner-form-section"
+                disabled="true"
+              >
+                <div id="item-cost-section">
+                  <div class="item-cost-section-div">
+                    <label for="product-cost">Costo del prodotto</label>
+                    <p>€ <input id="product-cost" type="number" step="0.01" min="0.01" required /></p>
+                  </div>
+                  <div class="item-cost-section-div">
+                    <label for="product-maintenance-rate">Tasso di mantenimento</label>
+                    <input id="product-maintenance-rate" type="number" class="percentage-input" step="0.01"  min="0.01" required />%
+                  </div>
+                </div>
+                <div class="checkbox-div">
+                  <input type="checkbox" id="discount-checkbox" />
+                  <label class="checkbox-label" for="discount-checkbox">Utilizza sconto sulle quantità</label>
+                </div>
+                <fieldset
+                  id="discount-section-fieldset"
+                  class="inner-form-section"
+                  disabled="true"
+                >
+                  <div id="discount-inputs-div">
+                    <div class="discount-table">
+                      <label>Quantità minima</label>
+                      <label>Sconto</label>
+                    </div>
+                    <div class="discount-table discount-row">
+                      <p class="discount-table-element" id="first-discount">
+                        <input class="minimum-quantity-discount" type="number" min="1" required />
+                      </p>
+                      <p class="discount-table-element">
+                        <input class="percentage-input discount-rate" type="number" step="0.01" min="0.01" required />%
+                      </p>
+                    </div>
+                    <div class="discount-table discount-row">
+                      <input type="checkbox" class="discount-tier-checkbox" />
+                      <p class="discount-table-element">
+                        <input class="minimum-quantity-discount" type="number" disabled="true" min="1" required />
+                      </p>
+                      <p class="discount-table-element">
+                        <input  class="percentage-input discount-rate" type="number" step="0.01" min="0.01" disabled="true" required />%
+                      </p>
+                    </div>
+                    <div class="discount-table discount-row">
+                      <input type="checkbox" class="discount-tier-checkbox" disabled="true" />
+                      <p class="discount-table-element">
+                        <input class="minimum-quantity-discount" type="number" disabled="true" min="11" required />
+                      </p>
+                      <p class="discount-table-element">
+                        <input class="percentage-input discount-rate" type="number" step="0.01" min="0.01" disabled="true" required />%
+                      </p>
+                    </div>
+                  </div>
+                </fieldset>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div id="submit-section">
+          <button type="submit" id="submit-button">Calcola</button>
+        </div>
+        <div id="definition">
+          <p>
+            Il lotto economico di ordinazione (<b>E</b>conomic <b>O</b>rder
+            <b>Q</b>uantity) è una formula di gestione delle scorte che aiuta le
+            aziende a determinare la quantità ottimale di un prodotto da
+            ordinare ogni volta per raggiungere equilibrio tra ottimizzazione
+            del servizio e minimizzazione dei costi.
+          </p>
+          <p>
+            <b>Nota:</b> il calcolatore arrotonda per eccesso sia l'EOQ che il numero di ordini.
+          </p>
+        </div>
+      </form>
+      <div id="results-section" class="main-section">
+        <div id="results">
+          <p id="instructions">
+            Inserisci i dati e poi clicca su "<b>Calcola</b>".
+          </p>
+          <div id="results-div"></div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
