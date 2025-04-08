@@ -1,7 +1,12 @@
+/* Reset e regole globali */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,6 +14,7 @@ body {
   background-color: lightgray;
 }
 
+/* Header */
 #header {
   position: absolute;
   height: 10%;
@@ -21,13 +27,14 @@ h3 {
   margin-top: -10px;
 }
 
+/* Layout principale */
 #main {
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 .main-section {
@@ -37,6 +44,7 @@ h3 {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Sezione del form */
 #form {
   width: 65vw;
   height: 85%;
@@ -44,6 +52,7 @@ h3 {
 }
 
 #main-form {
+  height: 61%;
   max-width: 100%;
   display: flex;
 }
@@ -52,8 +61,8 @@ h3 {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px 40px;
+  justify-content: space-around;
+  padding: 20px 0;
 }
 
 #main-form #mandatory-section {
@@ -71,6 +80,7 @@ h3 {
   justify-content: space-around;
 }
 
+/* Stili per fieldset e elementi del form */
 fieldset {
   display: flex;
   flex-direction: column;
@@ -80,13 +90,19 @@ fieldset {
 
 #item-cost-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.item-cost-section-div#product-cost-section {
+  width: 55%;
+}
+
+.item-cost-section-div#maintenance-rate-section {
+  width: 45%;
 }
 
 #main-form label {
-  width: 100%;
   display: block;
-  font-size: 20px;
   font-weight: bold;
 }
 
@@ -96,26 +112,48 @@ fieldset {
 
 #main-form .checkbox-label {
   display: inline;
-  font-size: 18px;
   font-weight: normal;
 }
 
 #main-form input[type="number"] {
   font-size: inherit;
-  height: 40px;
+  height: 2em;
   width: 13vw;
-  max-width: 200px;
-  margin-top: 5px;
-  padding-left: 10px;
   margin: 5px;
+  padding-left: 5px;
 }
 
-#main-form input.percentage-input {
-  width: 70px;
+#main-form input[type="number"].percentage-input {
+  width: 8vw;
 }
 
+/* Sezione sconti */
+#discount-inputs-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount-table {
+  display: flex;
+  justify-content: space-between;
+}
+
+.discount-table-element-first {
+  width: 60%;
+}
+
+.discount-table-element-second {
+  width: 40%;
+}
+
+#first-discount {
+  margin-left: 14px;
+}
+
+/* Sezione submit */
 #submit-section {
   display: flex;
+  height: 10%;
 }
 
 #form button {
@@ -124,35 +162,19 @@ fieldset {
   font-size: 25px;
 }
 
-#discount-inputs-div {
-  display: flex;
-  flex-direction: column;
-}
-
-.discount-table {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.discount-table-element {
-  width: 50%;
-}
-
-#first-discount {
-  margin-left: 14px;
-}
-
+/* Sezione risultati */
 #results-section {
   width: 30vw;
   height: 95%;
 }
 
 #definition {
+  height: 25%;
   margin-top: 15px;
-  border-top: solid gray 2px;
-  border-bottom: solid gray 2px;
   padding-top: 15px;
   padding-bottom: 12px;
+  border-top: solid gray 2px;
+  border-bottom: solid gray 2px;
 }
 
 #definition p {
@@ -169,23 +191,41 @@ fieldset {
 #results p#instructions {
   margin: auto;
   text-align: center;
-  transition: opacity 2s;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity 2s;
 }
 
 #results div#results-div {
   margin: auto;
   padding: 10px 20px;
-  text-align: left;
   font-size: 20px;
+  text-align: left;
   opacity: 0;
-  transition: opacity 1s;
   border-radius: 20px;
   background-color: rgb(206, 206, 206);
+  transition: opacity 1s;
   z-index: 1;
+}
+
+#results div#results-div p {
+  padding: 10px 0;
+}
+
+#results div#results-div p.costs {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#results div#results-div p.costs.total-costs {
+  border-top: solid gray 1px;
+}
+
+#results div#results-div p.note {
+  font-size: 12px;
 }
 
 #results div#results-div div.discounted-eoq {
@@ -202,26 +242,8 @@ fieldset {
   padding: 3px 0;
 }
 
-#results div#results-div p {
-  padding: 10px 0;
-}
-
-#results div#results-div p.costs {
-  padding: 5px 0;
-  display: flex;
-  justify-content: space-between;
-}
-
 #results div#results-div div.discounted-eoq p.costs {
   padding: 1px 0;
-}
-
-#results div#results-div p.costs.total-costs {
-  border-top: solid gray 1px;
-}
-
-#results div#results-div p.note {
-  font-size: 12px;
 }
 
 #results div#results-div div#conclusion {
@@ -230,4 +252,113 @@ fieldset {
   padding: 10px;
   border: solid gray 1px;
   border-radius: 20px;
+}
+
+/* Media queries */
+@media (max-width: 1280px) {
+  #main-form {
+    font-size: 15px;
+  }
+
+  #main-form input[type="number"] {
+    width: 10vw;
+  }
+
+  #results div#results-div {
+    font-size: 14px;
+  }
+
+  #results div#results-div div.discounted-eoq {
+    font-size: 9px;
+  }
+
+  #results div#results-div div#conclusion {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 1219px) {
+  #definition {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 940px) {
+  #main-form input[type="number"] {
+    width: 9vw;
+  }
+}
+
+@media (max-width: 771px) {
+  #header {
+    text-align: center;
+    padding-left: 0;
+    left: 25%;
+    right: 25%;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h3 {
+    margin-top: -5px;
+    font-size: 11px;
+  }
+
+  #main {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #form {
+    display: flex;
+    width: 90vw;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  #main-form {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #main-form .form-section#mandatory-section {
+    width: 100%;
+  }
+
+  #main-form .form-section#optional-section {
+    width: 100%;
+  }
+
+  #main-form input[type="number"] {
+    width: 80%;
+  }
+
+  #main-form input[type="number"].percentage-input {
+    width: 8vw;
+  }
+
+  #definition {
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  #results-section {
+    margin: 2vh 0;
+    width: 90vw;
+  }
+
+  #results {
+    min-height: 20vh;
+  }
+
+  #results div#results-div {
+    margin: 1vh 0;
+  }
+
+  #results p#instructions {
+    width: 100%;
+  }
 }

@@ -176,12 +176,12 @@ function handleSubmit() {
     results += `<div class="regular-eoq">`;
     results += `<p>L'EOQ è di <b>${eoq}</b> pezzi.</p>`;
     results +=  `<p>Il numero ottimale di ordini da eseguire nel corso dell'anno è di <b>${optimal_orders}</b>.</p>`;
-    results += `<p class="costs">Costi di ordinazione: <b>${costs.ordering_cost.toFixed(2)} €</b></p>`;
-    results += `<p class="costs">Costi di magazzino: <b>${costs.warehousing_cost.toFixed(2)} €</b></p>`;
+    results += `<p class="costs">Ordinazione: <b>${costs.ordering_cost.toFixed(2)} €</b></p>`;
+    results += `<p class="costs">Magazzino: <b>${costs.warehousing_cost.toFixed(2)} €</b></p>`;
     if (!product_cost_fieldset.disabled) {
-      results += `<p class="costs">Costi di acquisto: <b>${costs.purchase_cost.toFixed(2)} €</b></p>`;
+      results += `<p class="costs">Acquisto: <b>${costs.purchase_cost.toFixed(2)} €</b></p>`;
     }
-    results += `<p class="costs total-costs">Costi totali di inventario: <b>${costs.total_cost.toFixed(2)} €</b></p>`;
+    results += `<p class="costs total-costs">Totali: <b>${costs.total_cost.toFixed(2)} €</b></p>`;
     if (product_cost_fieldset.disabled) {
       results += `<p class="note">Nota: non sono inclusi i costi di acquisto.</p>`
     }
@@ -248,4 +248,5 @@ function handleSubmit() {
   }
   results_div.innerHTML = results;
   results_div.style.opacity = 1;
+  results_div.scrollIntoView();
 }
